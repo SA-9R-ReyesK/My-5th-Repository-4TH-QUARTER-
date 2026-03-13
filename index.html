@@ -1,0 +1,263 @@
+<!DOCTYPE html> 
+
+<html>
+<head>
+
+    
+    <title>Q3 Seatwork 2</title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+      
+      summary{
+        background-color: pink;
+      }  
+
+      
+      #villman, #silicon, #express{
+          height: 100px;
+          width: 300px;
+      }
+
+      
+      .row {
+        display: flex;
+        text-align: center;
+      }
+
+      
+      .row div {
+        flex: 1; 
+      }
+
+      
+      #brands{
+        width: 860px;
+        background-color: rgba(0, 42, 252, 0.5); 
+        height: 200px;
+        padding: 20px;
+      }
+
+      
+      body{
+        font-family: Gill Sans MT;
+        background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/94684d5d-eccb-4928-b74e-00ebd967376f/d308nm3-69f7cc69-d2a4-4477-b0fe-c20ce4a54aa6.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi85NDY4NGQ1ZC1lY2NiLTQ5MjgtYjc0ZS0wMGViZDk2NzM3NmYvZDMwOG5tMy02OWY3Y2M2OS1kMmE0LTQ0NzctYjBmZS1jMjBjZTRhNTRhYTYuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0._Io_yKypEck8PRrv36afM3v0zDGMP9HkDqeZUwc1ahY');
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      
+      .navbar{
+        background-image: linear-gradient(to right, #061f45, #0a60d1);
+      }
+
+      
+      h1{
+        color: white;
+        text-shadow: 2px 2px #484a49;
+      }
+
+      
+      #buttons, #brand_btn{
+        color: white;
+        background-color: #161f36; 
+        border: 3px solid gray;
+        border-radius: 20px;
+        width: 300px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      
+      #brand_btn{
+        font-size: 15px;
+        background-image: linear-gradient(to right, black, #161f36);
+      }
+
+      
+      #laptop{
+        height: 60px;
+        width: 60px;
+      }
+
+      
+      #budget{
+        text-align: center;
+        font-size: 25px;
+        color: #000000;
+      }
+
+      
+      .footer {
+        margin-top: 10%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+      }
+
+      
+      b{
+        background-color: gray;
+      }
+
+    </style>
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-expand-md">
+  <div class="container-fluid">
+
+    
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#" style="font-size: 20px; color: white;">Shop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" style="font-size: 20px; color: white;">Locate</a>
+      </li>
+    </ul>
+
+  
+    <center>
+      <h1>Product Finder</h1>
+    </center>
+
+
+    <form class="d-flex">
+      <input class="form-control me-2" type="text" placeholder="Search">
+      <button class="btn btn-primary" type="button">Search</button>
+    </form>
+
+  </div>
+</nav>
+
+<br>
+
+
+<center>
+<div id="brands">
+
+  <form>
+    <h3>
+      Want a suitable phone for you?
+      <img id="laptop" src="https://i.gifer.com/embedded/download/YCZM.gif">
+      <br>
+      Enter your budget and we will find the best one for you!
+    </h3> 
+
+    <input type="text" class="form-control" id="budget" placeholder="Enter here...">
+  </form>
+
+</div>
+</center>
+
+<br>
+
+
+<div class="container">
+  <div class="row">
+
+    
+    <div>
+      <button id="buttons" class="btn" onclick="showBrand()">
+        Brand & Discounts
+      </button>
+
+     
+      <div id="brand"></div>
+    </div>
+
+   
+    <div>
+      <button id="buttons" class="btn" onclick="showStore()">
+        Store Location
+      </button>
+
+      
+      <div id="stores"></div>
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+
+
+  function showBrand(){
+
+
+    let budget = Number(document.getElementById('budget').value);
+
+
+    let disc = budget * 0.20;
+
+
+    let finalPrice = disc.toFixed(2);
+
+
+    document.getElementById("brand").innerHTML =
+
+      "<br><b style='color: white;'>Recommended Brands:<br>" +
+
+      "<button id='brand_btn' class='btn'>iPhone</button><br>" +
+
+      "<button id='brand_btn' class='btn'>Samsung</button><br>" +
+
+      "<button id='brand_btn' class='btn'>Xiaomi</button><br>" +
+
+      "<button id='brand_btn' class='btn'>Oppo</button><br>" +
+
+      "<button id='brand_btn' class='btn'>Google</button><br>" +
+
+      "<br><br>You are eligible for: " +
+
+      "<span style='color: red;'><kbd style='font-size: 25px;'>" +
+      finalPrice +
+      "</kbd></span> discount.</b>";
+  }
+
+
+  function showStore(){
+
+
+    document.getElementById("stores").innerHTML =
+
+      "<br><img id='villman' src= https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM2lYzH-NHBT2fyBHjs3R2iPaZL_XY1vp-Xg&s class='img-thumbnail'><br>" +
+
+      "<br><b style='color: white;'>Location:<br>" +
+
+      "<i> SM Mall of Asia <br> Pasay City, Metro Manila </i><br>" +
+
+      "<br><img id='silicon' src='https://upload.wikimedia.org/wikipedia/commons/a/ae/Xiaomi_logo_%282021-%29.svg' class='img-thumbnail'><br>" +
+
+      "<br><b style='color: white;'>Location:<br>" +
+
+      "<i>3rd Floor, SM City Manila, San Marcelino St., <br> City of Manila</i>"
+
+      "<br><img id='silicon' src='https://1000logos.net/wp-content/uploads/2017/06/Font-Samsung-Logo.jpg' class='img-thumbnail'><br>" +
+
+      "<br><b style='color: white;'>Location:<br>" +
+
+      "<i>Ermita, Manila <br> City of Manila</i>";
+  }
+
+</script>
+
+<br><br><br>
+
+
+<div class="footer">
+  <hr style="color:white;">
+  <center>&copy; <label style="color:white;">Student Name</label></center>
+</div>
+
+</body>
+</html>
